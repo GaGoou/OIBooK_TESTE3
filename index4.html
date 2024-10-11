@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venda de Livro - Livro Exemplo</title>
+    <title>Venda de Livro - O Segredo da Autoconfiança</title>
     <style>
         body {
             margin: 0;
@@ -12,6 +13,9 @@
             background-color: #1b1f2f;
             color: #ffffff;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .back-arrow {
@@ -34,6 +38,8 @@
             align-items: center;
             text-align: center;
             padding: 40px;
+            max-width: 600px; /* Limitar a largura da container */
+            margin: auto; /* Centralizar a container */
         }
 
         h1 {
@@ -44,13 +50,13 @@
 
         p {
             font-size: 1.1em;
-            max-width: 600px;
             margin-bottom: 20px;
         }
 
         .book-image {
-            width: 250px;
+            width: 100%; /* Imagem responsiva */
             height: auto;
+            max-width: 250px; /* Largura máxima da imagem */
             margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -96,6 +102,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s, transform 0.3s ease;
             text-decoration: none;
+            display: inline-block; /* Adicionado para garantir o espaço do botão */
         }
 
         .buy-button:hover {
@@ -104,24 +111,57 @@
         }
 
         @keyframes float {
-            0%, 100% {
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-15px);
             }
         }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em; /* Diminuir o tamanho do título em telas menores */
+            }
+
+            p {
+                font-size: 1em; /* Diminuir o tamanho do texto em telas menores */
+            }
+
+            .buy-button {
+                font-size: 1em; /* Diminuir o tamanho do botão em telas menores */
+                padding: 10px 20px; /* Ajustar o padding do botão em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .book-image {
+                max-width: 100%; /* Ajustar imagem para largura total em telas muito pequenas */
+            }
+
+            h1 {
+                font-size: 1.5em; /* Diminuir ainda mais o tamanho do título em telas muito pequenas */
+            }
+
+            .back-arrow {
+                font-size: 1.2em; /* Diminuir o tamanho da seta de voltar em telas muito pequenas */
+            }
+        }
     </style>
 </head>
+
 <body>
     <!-- Seta de retorno -->
-    <a href="index.html" class="back-arrow">⬅ Voltar</a>
+    <a href="index1.html" class="back-arrow">⬅ Voltar</a>
 
     <div class="container">
-        <h1>PENSAMENTOS POSITIVO EM AÇÃO</h1>
+        <h1>O SEGREDO DA AUTOCONFIANÇA</h1>
         <p>Explore o maravilhoso mundo da leitura com este incrível livro que irá transformar a sua vida. Deixe-se levar pelas palavras e mergulhe em uma jornada inesquecível.</p>
-        <img src="PENSAMENTO POSITIVO EM AÇOES.jpg" alt="Capa do Livro" class="book-image">
-        <a href="https://sacola.pagbank.com.br/b9c84eb4-9f8e-4d42-bd99-6dbfd2b99f95" class="buy-button">Comprar Agora</a>
+        <img src="O SEGREDO DA AUTOCONFIANCA.jpg" alt="Capa do Livro" class="book-image">
+        <a href="https://sacola.pagbank.com.br/ba326e1a-ba3f-4071-9a19-2f290f2cc87e" class="buy-button">Comprar Agora</a>
     </div>
 
     <!-- Ícones Flutuantes -->
@@ -129,4 +169,5 @@
     <div class="floating-icon icon2">📚</div> <!-- Ícone de livro -->
     <div class="floating-icon icon3">☕</div> <!-- Ícone de café -->
 </body>
+
 </html>

@@ -78,7 +78,7 @@
         .form-group input:focus {
             outline: none;
             background-color: rgba(255, 255, 255, 0.3);
-            border-color: #A67B5B; /* Cor do foco */
+            border-color: #A67B5B;
         }
 
         .form-group input::placeholder {
@@ -99,7 +99,7 @@
 
         .login-btn:hover {
             background-color: #8F6B4D;
-            transform: translateY(-2px); /* Efeito de elevação */
+            transform: translateY(-2px);
         }
 
         .links {
@@ -116,14 +116,14 @@
 
         .links a:hover {
             color: #D4A373;
-            transform: scale(1.05); /* Efeito de aumento */
+            transform: scale(1.05);
         }
 
         .notification {
             margin-top: 20px;
             padding: 10px;
             border-radius: 5px;
-            display: none; /* Esconde inicialmente */
+            display: none;
             font-size: 1em;
         }
 
@@ -146,41 +146,61 @@
         @media (max-width: 768px) {
             .login-container {
                 width: 90%;
+                padding: 30px;
+            }
+            .login-container h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0 10px;
+            }
+            .login-container {
+                width: 100%;
+                padding: 20px;
+            }
+            .login-container h2 {
+                font-size: 1.8em;
+            }
+            .form-group input, .login-btn {
+                font-size: 1em;
+                padding: 10px;
+            }
+            .links a {
+                margin: 0 5px;
+                font-size: 0.9em;
             }
         }
     </style>
     <script>
         function saveLogin(event) {
-            event.preventDefault(); // Evita o envio do formulário
+            event.preventDefault();
             const email = document.getElementById('email').value.trim();
             const password = document.getElementById('password').value;
             const notification = document.getElementById('notification');
 
-            // Verifica se o usuário já está cadastrado
             const existingUser = localStorage.getItem(email);
 
             if (existingUser) {
                 const userData = JSON.parse(existingUser);
-                // Se o usuário já estiver cadastrado, verifica as credenciais
                 if (userData.email === email && userData.password === password) {
                     notification.className = 'notification success';
-                    notification.textContent = 'Login realizado com sucesso!'; // Mensagem de sucesso
+                    notification.textContent = 'Login realizado com sucesso!';
                     notification.style.display = 'block';
 
-                    // Salva o status de login no localStorage
                     localStorage.setItem('loggedIn', 'true');
 
-                    // Redireciona para a página desejada após o login
                     setTimeout(() => {
-                        window.location.href = "index.html"; // Substitua pelo seu destino
-                    }, 2000); // Espera 2 segundos antes do redirecionamento
+                        window.location.href = "index1.html";
+                    }, 2000);
                 } else {
                     notification.className = 'notification error';
-                    notification.textContent = 'E-mail ou senha incorretos.'; // Mensagem de erro
+                    notification.textContent = 'E-mail ou senha incorretos.';
                     notification.style.display = 'block';
                 }
             } else {
-                // Se não houver usuário cadastrado, solicita criação de conta
                 notification.className = 'notification error';
                 notification.textContent = 'Nenhum usuário encontrado. Por favor, crie uma nova conta.';
                 notification.style.display = 'block';
@@ -189,7 +209,6 @@
     </script>
 </head>
 <body>
-
     <div class="overlay"></div>
 
     <div class="login-container">
@@ -206,11 +225,10 @@
             <button type="submit" class="login-btn">Entrar</button>
             <div class="links">
                 <a href="#">Esqueceu a senha?</a>
-                <a href="indexcadastro.html">Criar nova conta</a>
+                <a href="#">Criar nova conta</a>
             </div>
         </form>
         <div id="notification" class="notification"></div>
     </div>
-
 </body>
 </html>
